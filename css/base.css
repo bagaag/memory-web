@@ -1,0 +1,33 @@
+:root {
+    --darker: black;
+    --dark: #2c3e50;
+    --medium: #3d78b3;
+    --light: #7191b6;
+    --lighter: #ced4da;
+    --lightest: #ced4da4b;
+
+    --border-radius: .25rem;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--dark);
+}
+
+a, a:visited {
+    color: var(--medium);
+}
+
+p {
+    margin: 0 0 2rem 0;
+}
+
+.content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 1.5rem;
+}

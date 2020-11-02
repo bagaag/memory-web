@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Memory</title>
+     <link rel="stylesheet" href="/css/main.css?m={{ stylemtime }}">
+</head>
+
+<body>
+
+<div class="nav-back">
+    <div class="nav-main content">
+        <div class="nav-brand"><a href="/">Memory</a></div>
+        <div class="nav-item"><a href="/dashboard">Dashboard</a></div>
+        <div class="nav-submenu">
+            <div class="nav-item nav-trigger"><a href="#">Create</div>
+            <div class="nav-drop">
+                <a class="nav-item" href="/new/event">Event</a>
+                <a class="nav-item" href="/new/person">Person</a>
+                <a class="nav-item" href="/new/place">Place</a>
+                <a class="nav-item" href="/new/thing">Thing</a>
+                <a class="nav-item" href="/new/note">Note</a>
+            </div>
+        </div>
+        <div class="nav-item"><a href="/browse">Browse</a></div>
+        <div class="nav-item"><a href="/timeline">Timeline</a></div>
+        <div class="nav-item"><a href="/seeds">Seeds</a></div>
+        <div class="nav-item"><a href="/random">Random</a></div>
+    </div>
+</div>
+
+{% block body %}{% endblock %}
+
+<script src="/js/app.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+.nav-back {
+    background-color: var(--dark);
+    padding: .5rem 0;
+}
+
+.nav-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-item, .nav-brand {
+    flex-basis: content;
+    padding-right: 1rem;
+    vertical-align: middle;
+}
+
+.nav-item a, .nav-brand a {
+    text-decoration: none;
+    color: white;
+}
+.nav-item a:hover, .nav-brand a:hover {
+    color: var(--lighter);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+}
+
+.nav-drop {
+    margin-top: 0.5rem;
+    display: none;
+    position: absolute;
+    background-color: var(--dark);
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.nav-drop a.nav-item {
+    color: white;
+    text-decoration: none;
+}
+.nav-drop a.nav-item:hover {
+    color: var(--lighter);
+}
+
+.nav-drop .nav-item {
+    padding: 12px;
+}

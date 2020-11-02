@@ -1,0 +1,22 @@
+/* --------------------
+ *  heading components 
+ * --------------------
+*/
+.hero {
+    background-color: var(--lighter);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+}
+
+.banner {
+    background-color: var(--lighter);
+    color: var(--dark);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.banner h1, .hero h1 {
+    font-size: 2.5rem;
+    font-weight: lighter;
+}

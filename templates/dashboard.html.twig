@@ -1,0 +1,246 @@
+{% extends "base.html.twig" %}
+{% from "./macros/svg_icon.macro.twig" import svg_icon as svg_icon %}
+{% block title %}{{ h1 }}{% endblock %}
+{% block body %}
+
+<div class="banner"><h1 class="content">{{ h1 }}</h1></div>
+
+<div class="content">
+
+    <div class="container dashboard">
+        <div class="row">
+            <div class="col">
+                <!-- Newest Entries -->
+                <div class="card">
+                    <div class="card-header">Newest Entries</div>
+                    <div class="card-body">
+                        <ul class="icon-list">
+                            <li><a href="#">{{ svg_icon('note') }}<span>Nathan Maxwell</span></a></li>
+                            <li><a href="#">{{ svg_icon('person') }}<span>Penelope Griswald</span></a></li>
+                            <li><a href="#">{{ svg_icon('place') }}<span>Acton-Boxborough Regional High School</span></a></li>
+                            <li><a href="#">{{ svg_icon('event') }}<span>8th Grade</span></a></li>
+                            <li><a href="#">{{ svg_icon('thing') }}<span>Triple A</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Newest Entries -->
+            </div>
+            <div class="col">
+                <!-- Recent Updates -->
+                <div class="card">
+                    <div class="card-header">Recent Updates</div>
+                    <div class="card-body">
+                        <ul class="icon-list">
+                            <li><a href="#">{{ svg_icon('person') }}<span>Penelope Griswald</span></a></li>
+                            <li><a href="#">{{ svg_icon('place') }}<span>Acton-Boxborough Regional High School</span></a></li>
+                            <li><a href="#">{{ svg_icon('thing') }}<span>Triple A</span></a></li>
+                            <li><a href="#">{{ svg_icon('note') }}<span>Nathan Maxwell</span></a></li>
+                            <li><a href="#">{{ svg_icon('event') }}<span>8th Grade</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Recent Updates -->
+            </div>
+            <div class="col">
+                <!-- Seeds -->
+                <div class="card">
+                    <div class="card-header">Seeds</div>
+                    <div class="card-body">
+                        <ul class="icon-list">
+                            <li><a href="#">{{ svg_icon('event') }}<span>8th Grade</span></a></li>
+                            <li><a href="#">{{ svg_icon('thing') }}<span>Triple A</span></a></li>
+                            <li><a href="#">{{ svg_icon('person') }}<span>Penelope Griswald</span></a></li>
+                            <li><a href="#">{{ svg_icon('place') }}<span>Acton-Boxborough Regional High School</span></a></li>
+                            <li><a href="#">{{ svg_icon('note') }}<span>Nathan Maxwell</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Seeds -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <!-- Create an Entry -->
+                <div class="card">
+                    <div class="card-header">Create an Entry</div>
+                    <div class="card-body">
+                        <ul class="icon-list">
+                            <li><a href="#">{{ svg_icon('event') }}<span>Event</span></a></li>
+                            <li><a href="#">{{ svg_icon('person') }}<span>Person</span></a></li>
+                            <li><a href="#">{{ svg_icon('place') }}<span>Place</span></a></li>
+                            <li><a href="#">{{ svg_icon('thing') }}<span>Thing</span></a></li>
+                            <li><a href="#">{{ svg_icon('note') }}<span>Note</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /Create an Entry -->
+            </div>
+            <div class="col">
+                <!-- Timeline -->
+                <div class="card">
+                    <div class="card-header">Timeline</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <a href="#" class="col-3 year">1973</a>
+                            <a href="#" class="col-3 year">1974</a>
+                            <a href="#" class="col-3 year">1975</a>
+                            <a href="#" class="col-3 year">1976</a>
+                            <a href="#" class="col-3 year">1977</a>
+                            <a href="#" class="col-3 year">1978</a>
+                            <a href="#" class="col-3 year">1979</a>
+                            <a href="#" class="col-3 year">1980</a>
+                            <a href="#" class="col-3 year">1981</a>
+                            <a href="#" class="col-3 year">1982</a>
+                            <a href="#" class="col-3 year">1983</a>
+                            <a href="#" class="col-3 year">1984</a>
+                            <a href="#" class="col-3 year">1985</a>
+                            <a href="#" class="col-3 year">1986</a>
+                            <a href="#" class="col-3 year">1987</a>
+                            <a href="#" class="col-3 year">1988</a>
+                            <a href="#" class="col-3 year">1989</a>
+                            <a href="#" class="col-3 year">1990</a>
+                            <a href="#" class="col-3 year">1991</a>
+                            <a href="#" class="col-3 year">1992</a>
+                            <a href="#" class="col-3 year">1993</a>
+                            <a href="#" class="col-3 year">1994</a>
+                            <a href="#" class="col-3 year">1995</a>
+                            <a href="#" class="col-3 year">More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Timeline -->
+            </div>
+            <div class="col">
+                <!-- Tags -->
+                <div class="card">
+                    <div class="card-header">Tags</div>
+                    <div class="card-body">
+                        <div class="">
+                            <a class="tag" href="#">Elephant</a>
+                            <a class="tag" href="#">1980s</a>
+                            <a class="tag" href="#">School</a>
+                            <a class="tag" href="#">Friend</a>
+                            <a class="tag" href="#">Book</a>
+                            <a class="tag" href="#">Job</a>
+                            <a class="tag" href="#">Colleague</a>
+                            <a class="tag" href="#">Family</a>
+                            <a class="tag" href="#">Social</a>
+                            <a class="tag" href="#">Hobby</a>
+                            <a class="tag-bare" href="#">More...</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Tags -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">                
+                <!-- Browse Entries -->
+                <div class="card">
+                    <div class="card-header">Browse Entries</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="field-group">
+                                <label for="browseBrowse" class="">Browse</label>
+                                <select class="form-control" id="browseBrowse">
+                                    <option>All</option>
+                                    <option>Events</option>
+                                    <option>People</option>
+                                    <option>Places</option>
+                                    <option>Things</option>
+                                    <option>Notes</option>
+                                </select>
+                            </div>
+                            <div class="field-group">
+                                <label for="browseOrderBy" class="">Order By</label>
+                                <select class="form-control" id="browseOrderBy">
+                                    <option>Modified Date</option>
+                                    <option>Created Date</option>
+                                    <option>Title</option>
+                                </select>
+                            </div>                        
+                            <div class="form-group">
+                                <button class="btn btn-secondary">Browse</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /Browse Entries -->
+            </div>
+            <div class="col">
+                <!-- Stats -->
+                <div class="card stats">
+                    <div class="card-header">By the Numbers</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>
+                                    <span class="badge">63</span> 
+                                    <a href="#">Entries</a>
+                                </p>
+                                <p>
+                                    <span class="badge">12</span> 
+                                    <a href="#">{{ svg_icon('event') }}Events</a>
+                                </p>
+                                <p>
+                                    <span class="badge">8</span>
+                                    <a href="#">{{ svg_icon('person') }} People</a>
+                                </p>
+                                <p>
+                                    <span class="badge">42</span>
+                                    <a href="#">{{ svg_icon('place') }} Places</a>
+                                </p>
+                                <p>
+                                    <span class="badge">1</span>
+                                    <a href="#">{{ svg_icon('thing') }} Thing</a>
+                                </p>
+                                <p>
+                                    <span class="badge">0</span>
+                                    <a href="#">{{ svg_icon('note') }} Notes</a>
+                                </p>
+                            </div>
+                            <div class="col-6 p-0">
+                                <p>
+                                    <span class="badge">0</span>
+                                    <a href="#">Seeds</a>
+                                </p>
+                                <p>
+                                    <span class="badge">0</span>
+                                    <a href="#">Orphans</a>
+                                </p>
+                                <p>
+                                    <span class="badge">0</span>
+                                    <a href="#">No Photo</a>
+                                </p>
+                                <p>
+                                    <span class="badge">0</span>
+                                    <a href="#">Have Photo</a>
+                                </p>
+                                <p>
+                                    <span class="badge">14</span>
+                                    <a href="#">TODOs</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Stats -->
+            </div>
+            <div class="col">
+                <!-- Random Entry -->
+                <div class="card">
+                    <div class="card-header">Random Entry</div>
+                    <div class="card-body">
+                        <p><strong>{{ svg_icon('event') }}&nbsp;&nbsp;<a href="#">High School</a></strong></p>
+                        <p>From about 1989-09 to winter of 1992.</p>
+                        <p>I have rolled up high school into a single event because the years blend
+                        together and its hard to know what memory goes with what year.</p>
+                    </div>
+                </div>
+                <!-- /Random Entry -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+.btn, a.btn, .btn-link {
+    background-color: var(--medium);
+    color: white;
+    text-decoration: none;
+    padding: .75rem 1rem;
+    border-radius: var(--border-radius);
+    margin-right: 2rem;
+}
+
+.btn-link {
+    background-color: transparent;
+    color: var(--medium);
+}
+
+.btn-group {
+    margin: 2rem 0;
+}
+
+.field-group {
+    margin: 1rem 0;
+}
+
+.field-group label {
+    display: block;
+    margin: 1rem 0 .25rem;
+} 
+
+.field-group input, .field-group select {
+    padding: .5rem .25rem;
+    color: var(--dark);
+    width: 40%;
+    min-width: 320px;
+}
+
+.card-body .field-group input, .card-body .field-group select {
+    min-width: 100%;
+}
+
+.field-help {
+    font-size: .85rem;
+    color: var(--medium);
+    margin: .25rem 0;
+}

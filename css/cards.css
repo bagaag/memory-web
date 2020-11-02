@@ -1,0 +1,22 @@
+/* -------
+ *  cards 
+ * -------
+*/
+.card {
+    border: 1px solid var(--lighter);
+    border-radius: var(--border-radius);
+    margin: 0 1.5rem 1.5rem 0;
+    min-width: 250px;
+}
+
+.card-header {
+    background-color: var(--lightest);
+    color: var(--darker);
+    border-bottom: 1px solid var(--lighter);
+    padding: .85rem;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: .85rem;
+}

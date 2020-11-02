@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block title %}{{ h1 }}{% endblock %}
+{% block body %}
+
+<div class="banner"><h1 class="content">{{ h1 }}</h1></div>
+
+<div class="content">
+
+    <p>To start using Memory, simply pick a name for your space, enter an email address and password. We'll send you a message with a link to verify your account. Already signed up? <a href="/login">Login instead</a>.</p>
+
+    <form action="#">
+        <div class="field-group">
+            <label>Name Your Space</label>
+            <input type="text" class="form-control">
+            <div class="field-help">Pick something short and unique made of letters, numbers and dashes.</div>          
+        </div>
+        <div class="field-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="field-group">
+            <label for="email">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="btn-group">
+            <a class="btn">Sign Up</a>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}
