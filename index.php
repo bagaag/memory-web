@@ -6,7 +6,7 @@ require $docroot . '/vendor/autoload.php';
 // setup twig
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-$loader = new FilesystemLoader($docroot . '/templates');
+$loader = new FilesystemLoader($docroot . '/views');
 $twig = new Environment($loader);
 
 // get page slug
@@ -21,7 +21,7 @@ if ($slug == '') {
 }
 
 // get page script or return 404 if not found
-$page = __DIR__ . '/pages/' . $slug . '.php';
+$page = __DIR__ . '/controllers/' . $slug . '.php';
 if (! file_exists($page) ) {
     http_response_code(404);
     echo("<h1>404</h1><p>Ruh roh. Couldn't find " . $slug . ".</p>");
@@ -29,7 +29,7 @@ if (! file_exists($page) ) {
 }
 // execute the targeted page
 else {
-    include ('pages/base.php');
-    include ('pages/' . $slug . '.php' );
+    include ('controllers/base.php');
+    include ('controllers/' . $slug . '.php' );
 }
 ?>
