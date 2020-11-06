@@ -20,3 +20,15 @@
 .card-body {
     padding: .85rem;
 }
+
+
+.entry-card .icon-list {
+    font-size: 1.25rem;
+}
+.entry-card .icon-list img.icon {
+    width: 26px;
+    height: 26px;
+}
+.entry-card p {
+    margin: 1rem 0;
+}

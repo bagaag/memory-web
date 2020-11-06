@@ -1,12 +1,11 @@
 <?php
 // load composer dependencies
-$docroot = __DIR__;
-require $docroot . '/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 // setup twig
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
-$loader = new FilesystemLoader($docroot . '/views');
+$loader = new FilesystemLoader(__DIR__ . '/views');
 $twig = new Environment($loader);
 
 // get page slug
