@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+{% block title %}{{ h1 }}{% endblock %}
+{% block body %}
+
+<div class="banner"><h1 class="content">{{ h1 }}</h1></div>
+
+<div class="content">
+
+    <div class="tab">
+        <button class="tablinks" onclick="openType(event, 'event')">Event</button>
+        <button class="tablinks" onclick="openType(event, 'person')">Person</button>
+        <button class="tablinks" onclick="openType(event, 'place')">Place</button>
+        <button class="tablinks" onclick="openType(event, 'thing')">Thing</button>
+        <button class="tablinks" onclick="openType(event, 'note')">Note</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="type-event" class="tabcontent">
+    event
+    </div>
+
+    <div id="type-person" class="tabcontent">
+    person
+    </div>
+
+    <div id="type-place" class="tabcontent">
+    place
+    </div>
+
+    <div id="type-thing" class="tabcontent">
+    thing
+    </div>
+
+    <div id="type-note" class="tabcontent">
+    note
+    </div>
+
+    <p>Rest of form...</p>
+    
+</div>
+
+{% endblock %}
