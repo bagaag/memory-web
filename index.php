@@ -1,23 +1,5 @@
 <?php
-// load composer dependencies
-require __DIR__ . '/vendor/autoload.php';
-
-// setup twig
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
-$loader = new FilesystemLoader(__DIR__ . '/views');
-$twig = new Environment($loader);
-
-// get page slug
-$url = explode('/', $_SERVER['REQUEST_URI']);
-$slug = $url[1];
-$qspos = strpos($slug, "?");
-if ($qspos != FALSE) {
-    $slug = substr($slug, 0, $qspos);
-}
-if ($slug == '') {
-    $slug = "home";
-}
+require_once __DIR__ . '/global.php';
 
 // get page script or return 404 if not found
 $page = __DIR__ . '/controllers/' . $slug . '.php';
@@ -28,7 +10,6 @@ if (! file_exists($page) ) {
 }
 // execute the targeted page
 else {
-    include ('controllers/base.php');
     include ('controllers/' . $slug . '.php' );
 }
 ?>

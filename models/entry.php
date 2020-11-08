@@ -19,8 +19,8 @@ class Entry
 	public array $attachments = array();
 
 	public function __construct() {
-		$this->created = getdate();
-		$this->modified = getdate();
+		$this->created = new DateTime();
+		$this->modified = new DateTime();
 		$this->type = new EntryType('event');
 	}
 

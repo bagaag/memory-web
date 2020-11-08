@@ -1,0 +1,353 @@
+/* Delete this file to regenerate it. */
+
+
+/* Combined file: /home/matt/projects/memory-web/util/../css/0_base.css*/
+
+:root {
+    --darker: black;
+    --dark: #2c3e50;
+    --medium: #3d78b3;
+    --light: #7191b6;
+    --lighter: #ced4da;
+    --lightest: #ced4da4b;
+
+    --border-radius: .25rem;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--dark);
+}
+
+a, a:visited {
+    color: var(--medium);
+}
+
+p {
+    margin: 0 0 2rem 0;
+}
+
+.content {
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 1.5rem;
+}
+
+/* Combined file: /home/matt/projects/memory-web/util/../css/1_grid.css*/
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+}
+
+.col-3 {
+    width: 25%;
+    display: inline-block;
+}
+
+.col-4 {
+    width: 33%;
+    display: inline-block;
+}
+/* Combined file: /home/matt/projects/memory-web/util/../css/1_icons.css*/
+
+/* -----------
+ *  icon list 
+ * -----------
+*/
+.icon-list {
+    padding: 0;
+    margin: 0;
+}
+
+.icon-list li {
+    list-style-type: none;
+}
+
+.icon-list > li > a {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: .5rem 0;
+    text-decoration: none;
+}
+
+.icon-list > li > a > img {
+    flex: 0;
+    margin-right: 1rem;
+}
+
+.icon-list > li > a > span {
+    flex: 1;
+}
+
+.icon-list a:hover {
+    text-decoration: underline;
+}
+
+/* Combined file: /home/matt/projects/memory-web/util/../css/2_cards.css*/
+
+/* -------
+ *  cards 
+ * -------
+*/
+.card {
+    border: 1px solid var(--lighter);
+    border-radius: var(--border-radius);
+    margin: 0 1.5rem 1.5rem 0;
+    min-width: 250px;
+}
+
+.card-header {
+    background-color: var(--lightest);
+    color: var(--darker);
+    border-bottom: 1px solid var(--lighter);
+    padding: .85rem;
+    font-size: 1.1rem;
+}
+
+.card-body {
+    padding: .85rem;
+}
+
+
+.entry-card .icon-list {
+    font-size: 1.25rem;
+}
+.entry-card .icon-list img.icon {
+    width: 26px;
+    height: 26px;
+}
+.entry-card p {
+    margin: 1rem 0;
+}
+/* Combined file: /home/matt/projects/memory-web/util/../css/2_forms.css*/
+
+.btn, a.btn, .btn-link {
+    background-color: var(--medium);
+    color: white;
+    text-decoration: none;
+    padding: .75rem 1rem;
+    border-radius: var(--border-radius);
+    margin-right: 2rem;
+}
+
+.btn-link {
+    background-color: transparent;
+    color: var(--medium);
+}
+
+.btn-group {
+    margin: 2rem 0;
+}
+
+.field-group {
+    margin: 1rem 0;
+}
+
+.field-group label {
+    display: block;
+    margin: 1rem 0 .25rem;
+} 
+
+.field-group input, .field-group select {
+    padding: .5rem .25rem;
+    color: var(--dark);
+    width: 40%;
+    min-width: 320px;
+}
+
+.card-body .field-group input, .card-body .field-group select {
+    min-width: 100%;
+}
+
+.field-help {
+    font-size: .85rem;
+    color: var(--medium);
+    margin: .25rem 0;
+}
+
+/* Combined file: /home/matt/projects/memory-web/util/../css/2_head.css*/
+
+/* --------------------
+ *  heading components 
+ * --------------------
+*/
+.hero {
+    background-color: var(--lighter);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--border-radius);
+}
+
+.banner {
+    background-color: var(--lighter);
+    color: var(--dark);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.banner h1, .hero h1 {
+    font-size: 2.5rem;
+    font-weight: lighter;
+}
+/* Combined file: /home/matt/projects/memory-web/util/../css/2_nav.css*/
+
+.nav-back {
+    background-color: var(--dark);
+    padding: .5rem 0;
+}
+
+.nav-main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-item, .nav-brand {
+    flex-basis: content;
+    padding-right: 1rem;
+    vertical-align: middle;
+}
+
+.nav-item a, .nav-brand a {
+    text-decoration: none;
+    color: white;
+}
+.nav-item a:hover, .nav-brand a:hover {
+    color: var(--lighter);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+}
+
+.nav-drop {
+    margin-top: 0.5rem;
+    display: none;
+    position: absolute;
+    background-color: var(--dark);
+    padding: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.nav-drop a.nav-item {
+    color: white;
+    text-decoration: none;
+}
+.nav-drop a.nav-item:hover {
+    color: var(--lighter);
+}
+
+.nav-drop .nav-item {
+    padding: 12px;
+}
+
+/* Combined file: /home/matt/projects/memory-web/util/../css/2_tabs.css*/
+
+.tab {
+    overflow: hidden;
+    border: 1px solid --var(medium);
+    background-color: --var(lighter);
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: --var(medium);
+}
+
+.tab button.active {
+    background-color: --var(light);
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid --var(light);
+    border-top: none;
+}
+/* Combined file: /home/matt/projects/memory-web/util/../css/2_tags.css*/
+
+/* ------
+ *  tags 
+ * ------
+*/
+.tag {
+    padding: .25rem .5rem;
+    margin: 0 .5rem .5rem 0;
+    display: inline-block;
+    color: var(--dark) !important;
+    border: 1px solid var(--lighter);
+    background-color: var(--lightest);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    text-align: center;
+}
+
+.tag:hover {
+    background-color: transparent;
+}
+
+.tag-bare {
+    display: inline-block;
+    padding: .25rem .5rem;
+    margin: 0 1rem 1rem 0;
+    text-decoration: none;
+}
+
+.tag-bare:hover {
+    text-decoration: underline;
+}
+/* Combined file: /home/matt/projects/memory-web/util/../css/3_dashboard.css*/
+
+/* --------------------
+ *  timeline year grid 
+ * --------------------
+*/
+.year {
+    padding-bottom: 1rem;
+}
+
+/* -----------------
+ *  dashboard stats
+ * -----------------
+*/
+.dashboard-stat {
+   display: block;
+   text-align: center;
+   margin-bottom: 1rem;
+}
+
+.dashboard-stat .stat {
+    font-size: 1.5rem;
+}
+
+.dashboard-stat .label {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: .8rem;
+}
+
+.dashboard-stat .label a {
+    text-decoration: none;
+}

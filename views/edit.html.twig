@@ -4,39 +4,73 @@
 
 <div class="banner"><h1 class="content">{{ h1 }}</h1></div>
 
-<div class="content">
+<div class="content edit-form">
+    <div class="field-group entry-name">
+        <input type="text" id="name" name="name" placeholder="Entry Name">        
+    </div>
 
+    <div class="tablabel">Entry Type</div>
     <div class="tab">
-        <button class="tablinks" onclick="openType(event, 'event')">Event</button>
-        <button class="tablinks" onclick="openType(event, 'person')">Person</button>
-        <button class="tablinks" onclick="openType(event, 'place')">Place</button>
-        <button class="tablinks" onclick="openType(event, 'thing')">Thing</button>
-        <button class="tablinks" onclick="openType(event, 'note')">Note</button>
+        <button class="tablinks" data-tab="tab-event">Event</button>
+        <button class="tablinks" data-tab="tab-person">Person</button>
+        <button class="tablinks" data-tab="tab-place">Place</button>
+        <button class="tablinks" data-tab="tab-thing">Thing</button>
+        <button class="tablinks" data-tab="tab-note">Note</button>
     </div>
 
     <!-- Tab content -->
-    <div id="type-event" class="tabcontent">
-    event
+    <div id="tab-event" class="tabcontent">
+        <div class="row">            
+            <div class="field-group field-date col-3">
+                <label for="startDate">Start Date</label>
+                <input type="text" size="10" id="startDate" name="startDate">        
+            </div>
+            <div class="field-group field-date col-3">
+                <label for="endDate">End Date</label>
+                <input type="text" size="10" id="endDate" name="endDate">        
+            </div>
+        </div>
     </div>
 
-    <div id="type-person" class="tabcontent">
-    person
+    <div id="tab-person" class="tabcontent">    
     </div>
 
-    <div id="type-place" class="tabcontent">
-    place
+    <div id="tab-place" class="tabcontent">
+        <div class="field-group">
+            <label for="address">Address</label>
+            <input type="text" class="entry-address" id="address" name="address">        
+        </div>
+        <div class="row">            
+            <div class="field-group field-date col-3">
+                <label for="endDate">Longitude</label>
+                <input type="text" size="10" id="longitude" name="longitude">        
+            </div>
+            <div class="field-group field-latlon col-3">
+                <label for="startDate">Latitude</label>
+                <input type="text" size="10" id="latitude" name="latitude">        
+            </div>
+            <div class="field-group field-date col-3">
+                <label>&nbsp;</label>
+                <input type="button" id="toggleMap" value="Show Map">
+            </div>
+        </div>
     </div>
 
-    <div id="type-thing" class="tabcontent">
-    thing
+    <div id="tab-thing" class="tabcontent">
+    
     </div>
 
-    <div id="type-note" class="tabcontent">
-    note
+    <div id="tab-note" class="tabcontent">
+    
     </div>
 
     <p>Rest of form...</p>
     
 </div>
+
+<script type="module">
+import { openType } from '/js/tabs.js';
+openType('tab-event');
+</script>
 
 {% endblock %}
