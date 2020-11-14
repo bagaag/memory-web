@@ -1,15 +1,19 @@
 .entry-name input {
     font-size: 1.5rem;
-    width: 85%;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 input.entry-address {
     resize: none;
-    width: 85%;
     font-size: 1rem;
 }
 
 .edit-form .field-group {
     margin-top: 0;
+}
+
+.tagify {
+    border-radius: var(--border-radius);
+    border: 1px solid #bbb;
 }

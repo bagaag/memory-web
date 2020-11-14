@@ -57,20 +57,42 @@
     </div>
 
     <div id="tab-thing" class="tabcontent">
-    
+
     </div>
 
     <div id="tab-note" class="tabcontent">
-    
+
     </div>
 
-    <p>Rest of form...</p>
-    
+    <div class="field-group">
+        <label for="endDate">Tags</label>
+        <input type="text" name="tags" id="tags" class="tags-input">        
+    </div>
+
+    <div class="field-group">
+        <textarea id="description" name="description"></textarea>        
+    </div>
+
 </div>
 
 <script type="module">
-import { openType } from '/js/tabs.js';
-openType('tab-event');
+import { openTab } from '/js/tabs.js';
+// open default tab
+openTab('tab-event');
+</script>
+
+<script src="/js/vendor/tagify.min.js"></script>
+<script>
+var tagify = new Tagify(document.getElementById('tags'));
+</script>
+
+<script src="/vendor/tinymce/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+    selector: '#description',
+    plugins: 'lists autolink link image',
+    toolbar: 'undo redo | styleselect | bold italic | bullist numlist outdent indent | link image'
+});
 </script>
 
 {% endblock %}
