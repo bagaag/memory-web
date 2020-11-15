@@ -1,7 +1,9 @@
 .entry-name input {
-    font-size: 1.5rem;
     margin-bottom: 1rem;
     width: 100%;
+    color: var(--dark);
+    font-size: 2rem;
+    font-weight: lighter;
 }
 
 input.entry-address {

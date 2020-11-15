@@ -25,7 +25,7 @@
                 <label for="startDate">Start Date</label>
                 <input type="text" size="10" id="startDate" name="startDate">        
             </div>
-            <div class="field-group field-date col-3">
+            <div class="field-group field-date col-9">
                 <label for="endDate">End Date</label>
                 <input type="text" size="10" id="endDate" name="endDate">        
             </div>
@@ -41,31 +41,27 @@
             <input type="text" class="entry-address" id="address" name="address">        
         </div>
         <div class="row">            
-            <div class="field-group field-date col-3">
-                <label for="endDate">Longitude</label>
+            <div class="field-group field-latlon col-3">
+                <label for="longitude">Longitude</label>
                 <input type="text" size="10" id="longitude" name="longitude">        
             </div>
             <div class="field-group field-latlon col-3">
-                <label for="startDate">Latitude</label>
+                <label for="latitude">Latitude</label>
                 <input type="text" size="10" id="latitude" name="latitude">        
             </div>
-            <div class="field-group field-date col-3">
+            <div class="field-group field-btn col-3">
                 <label>&nbsp;</label>
                 <input type="button" id="toggleMap" value="Show Map">
             </div>
         </div>
     </div>
 
-    <div id="tab-thing" class="tabcontent">
+    <div id="tab-thing" class="tabcontent"></div>
 
-    </div>
-
-    <div id="tab-note" class="tabcontent">
-
-    </div>
+    <div id="tab-note" class="tabcontent"></div>
 
     <div class="field-group">
-        <label for="endDate">Tags</label>
+        <label for="endDate" title="Use tags to categorize entries. Tags for a Person might be Friend or Family." class="help-label">Tags <img src="/images/help.png"></label>
         <input type="text" name="tags" id="tags" class="tags-input">        
     </div>
 
@@ -73,6 +69,65 @@
         <textarea id="description" name="description"></textarea>        
     </div>
 
+    <div>
+        <div id="file-manager-list">
+        </div>
+        <form class="row" id="file-manager-add">
+            <div class="col-6">
+                <div class="field-group">
+                    <label for="label_#" title="Give the file a friendly display name." class="help-label">Name <img src="/images/help.png"></label>
+                    <input type="text" size="10" id="new-file-name" name="new-file-name">        
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field-group">
+                    <label for="new_file" class="help-label">File</label>
+                    <input type="file" class="file-input" name="new-file" id="new-file" value=""/>        
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="field-group">
+                    <label>&nbsp;</label>
+                    <button id="file-manager-upload">Upload</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="file-manager-edit-template">
+        <div class="row file-manager-edit" id="file-manager-edit-#">
+            <div class="col-6">
+                <div class="field-group">
+                    <label for="label-#" title="Give the file a friendly name." class="help-label">Name <img src="/images/help.png"></label>
+                    <input type="text" size="10" id="file-name-#" name="file-name-#">        
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="field-group">
+                    <label for="file-#" class="help-label">File</label>
+                    <a id="file-link-#" href="#">file-name.ext</a>        
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="field-group">
+                    <label>&nbsp;</label>
+                    <button id="delete-file-#">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group">
+        <a class="btn" href="#">Save</a>
+        <a class="btn-link" href="javascript:if (confirm('Are you sure you want to discard your changes?')) history.back();">Cancel</a>
+    </div>
+
+    <p>TODO: Move to view screen <br>
+        Created: {{ entry.created.format("D, d M Y H:i:s \\G\\M\\T") }}<br>
+    {% if entry.created != entry.modified %}
+        Modified: {{ entry.modified.format("D, d M Y H:i:s \G\M\T") }}
+    {% endif %}
+    </p>
 </div>
 
 <script type="module">
@@ -83,16 +138,41 @@ openTab('tab-event');
 
 <script src="/js/vendor/tagify.min.js"></script>
 <script>
+// https://github.com/yairEO/tagify
 var tagify = new Tagify(document.getElementById('tags'));
 </script>
 
 <script src="/vendor/tinymce/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
+// https://www.tiny.cloud/docs/configure/
 tinymce.init({
     selector: '#description',
+    height: 300,
+    contextmenu: false,
     plugins: 'lists autolink link image',
-    toolbar: 'undo redo | styleselect | bold italic | bullist numlist outdent indent | link image'
+    menubar: false,
+    toolbar: 'cut copy paste | styleselect | bold italic strikethrough removeformat | bullist numlist outdent indent | ' +
+        'link image | source'
 });
+</script>
+
+<script src="/js/util.js"></script>
+<script src="/js/vendor/datepicker.min.js"></script>
+<script>
+// https://www.npmjs.com/package/js-datepicker
+let pickerOptions = {
+    id: 1,
+    formatter: (input, date, instance) => {
+        input.value = shortISO(date);
+    }
+};
+const startPicker = datepicker('#startDate', pickerOptions);
+const endPicker = datepicker('#endDate', pickerOptions);
+</script>
+
+<script type="module">
+import { FileManager } from '/js/filemanager.js';
+let fileManager = new FileManager([{link: '#file-url', name: 'This is the File Name', slug: 'this-is-the-file-name', extension: 'png' }])
 </script>
 
 {% endblock %}

@@ -55,3 +55,12 @@ input, textarea, select {
     min-width: 0;
     width: unset;
 }
+
+.file-input {
+    margin-top: -4px;
+    border: none;
+}
+
+.file-manager-edit a {
+    line-height: 2rem;
+}

@@ -31,3 +31,9 @@
 .icon-list a:hover {
     text-decoration: underline;
 }
+
+.help-label img {
+    margin-bottom: -4px;
+    margin-left: 4px;    
+    width: 20px;
+}
