@@ -34,7 +34,6 @@ export class FileManager {
         // use template to add to DOM
         let html = this.editTemplate.innerHTML;
         html = html.replaceAll('-#', '-' + String(fileNo));
-        console.log(html);
         this.list.insertAdjacentHTML('beforeend', html);
         // set link and name
         let link = document.getElementById(FILE_LINK_ID.replaceAll('#', String(fileNo)));
@@ -59,7 +58,7 @@ export class FileManager {
     // event handler for the Upload button click
     uploadFile() {
         let nameField = document.getElementById(ADD_NAME_ID);
-        let fileObj = {link: '#newfile', name: nameField.value, ext: 'png' };
+        let fileObj = {link: '#newfile', name: nameField.value, slug: 'slug', extension: 'png' };
         this.addFile(fileObj);
         let form = document.getElementById(ADD_FORM_ID);
         form.reset();

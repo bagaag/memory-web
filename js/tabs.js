@@ -47,8 +47,10 @@ export function openTab (tabId) {
     }
 }
 
-// set the click event for .tablinks
-let links = document.getElementsByClassName('tablinks');
-for (let i=0; i<links.length; i++) {
-    links[i].addEventListener("click", tabClick)
+export function setupTabs() {
+    // set the click event for .tablinks
+    let links = document.getElementsByClassName('tablinks');
+    for (let i=0; i<links.length; i++) {
+        links[i].addEventListener("click", tabClick)
+    }
 }

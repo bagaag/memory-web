@@ -1,0 +1,20 @@
+/* -----------------------
+ *  help labels and icons 
+ * -----------------------
+*/
+
+.helper {
+    cursor: pointer;
+}
+
+.helper img {
+    margin-bottom: -3px;
+    margin-left: 4px;    
+    width: 18px;
+}
+
+.helper-text {
+    font-size: .85rem;
+    color: var(--medium);
+    margin-top: 0 !important;
+}
