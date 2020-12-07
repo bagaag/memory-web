@@ -28,3 +28,18 @@
 .tag-bare:hover {
     text-decoration: underline;
 }
+
+.removeTag {
+    text-decoration: none;
+    color: var(--medium);
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+span.tag {
+    cursor: default;
+}
+
+span.tag:hover {
+    background-color: var(--lightest);
+}

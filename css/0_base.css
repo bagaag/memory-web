@@ -6,12 +6,15 @@
     --lighter: #ced4da;
     --lightest: #ced4da4b;
 
+    --text-color: black;
+
     --border-radius: .25rem;
 }
 
 body {
     font-family: sans-serif;
     margin: 0;
+    color: var(--text-color);
 }
 
 h1, h2, h3, h4, h5 {

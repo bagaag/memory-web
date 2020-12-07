@@ -1,0 +1,84 @@
+{% extends "base.html.twig" %}
+{% from "./macros/svg_icon.macro.twig" import svg_icon as svg_icon %}
+{% block title %}{{ h1 }}{% endblock %}
+{% set desclen = 100 %}
+
+{% macro typeLink(type, params) %}?tags={{ params.tags|join(',') }}&sort={{ params.sort }}&type={{ type }}{% endmacro %}
+{% macro sortLink(sort, params) %}?tags={{ params.tags|join(',') }}&sort={{ sort }}&type={{ params.type }}{% endmacro %}
+{% macro removeTag(tag, params) %}?tags={{ params.tags|filter(t => t != tag)|join(',') }}&sort={{ params.sort }}&type={{ params.type }}{% endmacro %}
+{% macro addTag(tag, params) %}?tags={{ params.tags|merge([tag])|join(',') }}&sort={{ params.sort }}&type={{ params.type }}{% endmacro %}
+{% macro pageLink(page, params) %}?tags={{ params.tags|join(',') }}&sort={{ params.sort }}&type={{ params.type }}&page={{ page }}{% endmacro %}
+
+{% block body %}
+
+<div class="banner"><h1 class="content">{{ h1 }}</h1></div>
+
+<div class="content">
+
+    <form>
+        <div class="field-group">
+            <label for="browseBrowse" class="">Type</label>
+            <div class="button-group">
+                <a{% if params.type == '' %} class="active"{% endif %} href="{{ _self.typeLink('', params) }}">All</a>
+                <a{% if params.type == 'event' %} class="active"{% endif %} href="{{ _self.typeLink('event', params) }}">Events</a>
+                <a{% if params.type == 'person' %} class="active"{% endif %} href="{{ _self.typeLink('person', params) }}">People</a>
+                <a{% if params.type == 'place' %} class="active"{% endif %} href="{{ _self.typeLink('place', params) }}">Places</a>
+                <a{% if params.type == 'thing' %} class="active"{% endif %} href="{{ _self.typeLink('thing', params) }}">Things</a>
+                <a{% if params.type == 'note' %} class="active"{% endif %} href="{{ _self.typeLink('note', params) }}">Notes</a>
+            </div>
+        </div>
+        <div class="field-group">
+            <label for="browseOrderBy" class="">Order By</label>
+            <div class="button-group">
+                <a{% if params.sort == 'modified' %} class="active"{% endif %} href="{{ _self.sortLink('modified', params) }}">Modified</a>
+                <a{% if params.sort == 'created' %} class="active"{% endif %} href="{{ _self.sortLink('created', params) }}">Created</a>
+                <a{% if params.sort == 'name' %} class="active"{% endif %} href="{{ _self.sortLink('name', params) }}">Name</a>
+            </div>
+        </div>
+        {% if params.tags|length > 0 %}
+        <div class="field-group">
+            <label for="browseOrderBy" class="">Tags</label>
+            <div class="tag-group">
+            {% for tag in params.tags %}
+                <span class="tag"><a href="{{ _self.removeTag(tag, params) }}" class="removeTag">X</a> {{tag}}</span>
+            {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </form>
+
+    {% for entry in entries %}
+    <div class="entry-teaser">
+        {{ svg_icon(entry.type.get()) }}
+        <div class="entry-teaser-name"><a href="{{ entry.slug }}">{{ entry.name }}</a></div>
+        <div class="entry-teaser-description">
+            {{ entry.description|length > desclen ? entry.description|slice(0, desclen) ~ '...' : entry.description  }}
+        </div>
+        {% if entry.tags|length > 0 %}
+            <div class="entry-teaser-tags"> 
+                {% for tag in entry.tags %}
+                    {% if tag not in tags %}
+                        <a class="tag" href="{{ _self.addTag(tag, params) }}">{{ tag }}</a>
+                    {% else %}
+                        <span class="tag">{{ tag }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+    <div class="pager">
+    <span class="label">Pages</span> 
+    {% for i in 1..params.pages %}
+        {% if params.page == i %}
+            <span class="current">{{i}}</span>
+        {% else %}
+            <a class="page" href="{{ _self.pageLink(i, params) }}">{{i}}</a>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+.entry-teaser {
+    margin-bottom: 1rem;
+}
+
+.entry-teaser-name, .entry-teaser-description, .entry-teaser-tags, .entry-teaser-dates {
+    margin-left: 30px;
+}
+
+.entry-teaser-name {
+    font-size: 1.1rem;
+}
+
+.entry-teaser img {
+    float: left;
+}
+
+.entry-teaser-description, .entry-teaser-tags, .entry-teaser-dates {
+    font-size: .85rem;
+    margin-top: .25rem;
+}
+
+.entry-teaser a {
+    text-decoration: none;
+}
+
+.entry-teaser .tag {
+    margin: 0;
+    padding: .125rem .25rem;
+}

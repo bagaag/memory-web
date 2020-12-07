@@ -26,3 +26,13 @@ class Entry
 	}
 
 }
+
+function createEntry($name, $slug, $type, $tags, $description) {
+	$entry = new Entry();
+	$entry->name = $name;
+	$entry->slug = $slug;
+	$entry->type->set($type);
+	$entry->tags = $tags;
+	$entry->description = $description;
+	return $entry;
+}

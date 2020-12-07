@@ -64,3 +64,31 @@ input, textarea, select {
 .file-manager-edit a {
     line-height: 2rem;
 }
+
+.button-group {
+    display: flex;
+}
+
+.button-group button, .button-group a {
+    flex: 0 1 auto;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: 0.3s;
+    background-color: var(--lighter);
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.button-group button.active, .button-group a.active {
+    background-color: var(--medium);
+    color: white;
+}
+
+.button-group button:hover, .button-group a:hover {
+    background-color: var(--medium);
+    color: white;   
+}
+

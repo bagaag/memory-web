@@ -1,0 +1,13 @@
+.pager {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: var(--lightest);
+}
+
+.pager .current {
+    font-weight: bold;
+}
+
+.pager .page, .pager .current, .pager .label {
+    padding-right: .5rem;
+}
