@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+{% block title %}entry.name{% endblock %}
+{% block body %}
+
+<div class="banner"><h1 class="content">{{ h1 }}</h1></div>
+
+<div class="content">
+
+<div class="entry-attr">
+    <div class="attr-key">Type</div>
+    <div class="attr-val">{{ entry.type.get()|title }}</div>
+</div>
+
+{% if entry.start or entry.end %}
+<div class="entry-attr">
+    <div class="attr-key">Event Dates</div>
+    <div class="attr-val">{{ entry.start|date('yy-m-d') }} - {{ entry.end|date('yy-m-d') }}</div>
+</div>
+{% endif %}
+
+{% if entry.address != '' %}
+<div class="entry-attr">
+    <div class="attr-key">Address</div>
+    <div class="attr-val">{{ entry.address }}</div>
+</div>
+{% endif %}
+
+{% if entry.tags|length > 0 %}
+<div class="entry-attr">
+    <div class="attr-key">Tags</div>
+    <div class="attr-val">
+        {% for tag in entry.tags %}
+            <a class="tag" href="/browse?tags={{tag}}">{{ tag }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<div class="entry-attr">
+    <div class="attr-key">Created</div>
+    <div class="attr-val">{{ entry.created|date('yy-m-d') }}</div>
+</div>
+<div class="entry-attr">
+    <div class="attr-key">Modified</div>
+    <div class="attr-val">{{ entry.modified|date('yy-m-d') }}</div>
+</div>
+
+<div class="entry-description">{{ entry.description }}</div>
+
+</div>
+
+{% endblock %}

@@ -50,7 +50,7 @@
     {% for entry in entries %}
     <div class="entry-teaser">
         {{ svg_icon(entry.type.get()) }}
-        <div class="entry-teaser-name"><a href="{{ entry.slug }}">{{ entry.name }}</a></div>
+        <div class="entry-teaser-name"><a href="/entry/{{ entry.slug }}">{{ entry.name }}</a></div>
         <div class="entry-teaser-description">
             {{ entry.description|length > desclen ? entry.description|slice(0, desclen) ~ '...' : entry.description  }}
         </div>

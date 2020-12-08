@@ -2,6 +2,9 @@
 require_once __DIR__ . '/global.php';
 
 // get page script or return 404 if not found
+if ($slug == 'entry') {
+    $_REQUEST['slug'] = $url[2];
+}
 $page = __DIR__ . '/controllers/' . $slug . '.php';
 if (! file_exists($page) ) {
     http_response_code(404);
