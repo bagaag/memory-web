@@ -53,7 +53,6 @@ $data['h1'] = 'Browse';
 $data['entries'] = $pager->slicePage($entries);
 $params = array();
 $params['type'] = $type;
-$params['type'] = $type;
 $params['tags'] = $tags;
 $params['sort'] = $sort;
 $params['page'] = $pager->page;
