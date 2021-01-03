@@ -1,3 +1,8 @@
+.entry-edit-btn {
+    float:right;
+    margin: 8px;
+}
+
 .entry-attr {
     margin: 1rem 0;
     display: flex;
@@ -15,3 +20,40 @@
     padding-left: 2rem;
     display: inline-block;
 }
+
+.entry-description {
+    font-size: 1.15rem;
+    line-height: 1.75rem;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.gallery img {
+    max-width:150px;
+    max-height: 150px;
+    vertical-align: middle;
+}
+
+.gallery a {
+    text-decoration: none;
+}
+
+.gallery figure {
+    text-align: center;
+}
+
+.gallery figcaption {
+    background-color: var(--lighter);
+    color: var(--dark);
+    padding: 4px;
+    max-width: 142px;
+    text-align: center;
+    font-size: .75rem;
+    vertical-align: middle;
+  }

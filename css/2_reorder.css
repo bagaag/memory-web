@@ -1,0 +1,28 @@
+/* Source: https://codepen.io/retrofuturistic/pen/tlbHE */
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+  }
+  
+  .reorder-handle {
+    cursor: move;
+    padding: 2rem .5rem 0 0;
+  }
+
+  .reorder-item.dragElem {
+    opacity: 0.4;
+  }
+
+  .reorder-item.over {
+    border-top: 2px solid var(--medium);
+  }
+  
+  #reorder-item-last {
+    height: 10px;
+  }

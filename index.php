@@ -2,7 +2,7 @@
 require_once __DIR__ . '/global.php';
 
 // get page script or return 404 if not found
-if ($slug == 'entry') {
+if ($slug == 'entry' || $slug == 'edit') {
     $_REQUEST['slug'] = $url[2];
 }
 $page = __DIR__ . '/controllers/' . $slug . '.php';

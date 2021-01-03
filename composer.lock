@@ -4,8 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1f5ddbe23df51e437d7883724d8bd159",
+    "content-hash": "a198ff0f6c0b06f32b9696ba8b51c2ec",
     "packages": [
+        {
+            "name": "dimsemenov/magnific-popup",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dimsemenov/Magnific-Popup.git",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dimsemenov/Magnific-Popup/zipball/6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "reference": "6b7a8088783cbce01034414c1fd2d8e1889093ae",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Light and responsive lightbox script with focus on performance.",
+            "homepage": "http://dimsemenov.com/plugins/magnific-popup/",
+            "support": {
+                "issues": "https://github.com/dimsemenov/Magnific-Popup/issues",
+                "source": "https://github.com/dimsemenov/Magnific-Popup/tree/1.1.0"
+            },
+            "time": "2016-02-20T09:06:30+00:00"
+        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.20.0",
@@ -167,16 +191,16 @@
         },
         {
             "name": "tinymce/tinymce",
-            "version": "5.5.1",
+            "version": "5.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "a436d254bc8d62e50be1fdb3d3e98981ab0e4c40"
+                "reference": "310051defb85fec8581ace8b739ab7b18023db8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/a436d254bc8d62e50be1fdb3d3e98981ab0e4c40",
-                "reference": "a436d254bc8d62e50be1fdb3d3e98981ab0e4c40",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/310051defb85fec8581ace8b739ab7b18023db8a",
+                "reference": "310051defb85fec8581ace8b739ab7b18023db8a",
                 "shasum": ""
             },
             "type": "component",
@@ -212,9 +236,9 @@
                 "wysiwyg"
             ],
             "support": {
-                "source": "https://github.com/tinymce/tinymce-dist/tree/5.5.1"
+                "source": "https://github.com/tinymce/tinymce-dist/tree/5.6.2"
             },
-            "time": "2020-10-01T05:31:22+00:00"
+            "time": "2020-12-08T07:23:49+00:00"
         },
         {
             "name": "twig/twig",

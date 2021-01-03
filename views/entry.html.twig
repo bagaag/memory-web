@@ -1,10 +1,17 @@
 {% extends "base.html.twig" %}
+{% block head %}
+    <link rel="stylesheet" href="/vendor/dimsemenov/magnific-popup/dist/magnific-popup.css">
+    <script src="/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/vendor/dimsemenov/magnific-popup/dist/jquery.magnific-popup.js"></script>
+{% endblock %}
 {% block title %}entry.name{% endblock %}
 {% block body %}
 
 <div class="banner"><h1 class="content">{{ h1 }}</h1></div>
 
 <div class="content">
+
+<div class="entry-edit-btn"><a href="/edit/{{entry.slug}}" class="btn">Edit Entry</a></div>
 
 <div class="entry-attr">
     <div class="attr-key">Type</div>
@@ -45,7 +52,37 @@
     <div class="attr-val">{{ entry.modified|date('yy-m-d') }}</div>
 </div>
 
-<div class="entry-description">{{ entry.description }}</div>
+<div class="gallery">
+{% if entry.attachments|length > 0 %}
+    {% for att in entry.attachments %}
+        {% set url = att.url(entry) %}
+        <a href="{{url}}">
+            <figure>
+                <img src="{{url}}" alt="{{att.name}}">
+                <figcaption>{{att.name}}</figcaption>
+            </figure>
+        </a>
+    {% endfor %}
+{% endif %}
+</div>
+
+<div class="entry-description">{{ entry.description|raw }}</div>
+
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a', 
+        type: 'image',
+        gallery: {
+            enabled: true, 
+            preload: [2,2], // # of imgs to preload before, after current
+            navigateByImgClick: true,
+            arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>', 
+            tPrev: 'Previous (Left arrow key)', // title for left button
+            tNext: 'Next (Right arrow key)', // title for right button
+            tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
+        }
+    });
+</script>
 
 </div>
 
