@@ -1,0 +1,259 @@
+{% extends "base.html.twig" %}
+{% from "./macros/svg_icon.macro.twig" import svg_icon as svg_icon %}
+{% block head %}
+<link href="/vendor/leongersen/nouislider/distribute/nouislider.css" rel="stylesheet">
+<script src="/vendor/leongersen/nouislider/distribute/nouislider.js"></script>
+{% endblock %}
+{% block title %}
+	{{ h1 }}
+{% endblock %}
+{% set desclen = 100 %}
+
+{% macro typeLink(type, params) %}?tags={{ params.tags|join(',') }}&sort={{ params.sort }}&type={{ type }}
+{% endmacro %}
+{% macro sortLink(sort, params) %}?tags={{ params.tags|join(',') }}&sort={{ sort }}&type={{ params.type }}
+{% endmacro %}
+{% macro removeTag(tag, params) %}?tags={{ params.tags|filter(t => t != tag)|join(',') }}&sort={{ params.sort }}&type={{ params.type }}
+{% endmacro %}
+{% macro addTag(tag, params) %}?tags={{ params.tags|merge([tag])|join(',') }}&sort={{ params.sort }}&type={{ params.type }}
+{% endmacro %}
+{% macro pageLink(page, params) %}?tags={{ params.tags|join(',') }}&sort={{ params.sort }}&type={{ params.type }}&page={{ page }}
+{% endmacro %}
+
+{% block body %}
+
+	<div class="banner">
+		<h1 class="content">{{ h1 }}</h1>
+	</div>
+
+	<div class="content">
+		<form name="timelineFilters">
+            <input type="hidden" name="start" value="">
+            <input type="hidden" name="end" value="">
+            <div id="timeline-range"></div>
+            <div id="timeline-legend"></div>
+			<div class="field-group">
+				<label for="browseBrowse" class="">Type</label>
+				<div class="button-group">
+					<a {% if params.type == '' %} class="active" {% endif %} href="{{ _self.typeLink('', params) }}">All</a>
+					<a {% if params.type == 'event' %} class="active" {% endif %} href="{{ _self.typeLink('event', params) }}">Events</a>
+					<a {% if params.type == 'person' %} class="active" {% endif %} href="{{ _self.typeLink('person', params) }}">People</a>
+					<a {% if params.type == 'place' %} class="active" {% endif %} href="{{ _self.typeLink('place', params) }}">Places</a>
+					<a {% if params.type == 'thing' %} class="active" {% endif %} href="{{ _self.typeLink('thing', params) }}">Things</a>
+					<a {% if params.type == 'note' %} class="active" {% endif %} href="{{ _self.typeLink('note', params) }}">Notes</a>
+				</div>
+			</div>
+			{% if params.tags|length > 0 %}
+				<div class="field-group">
+					<label for="browseOrderBy" class="">Tags</label>
+					<div class="tag-group">
+						{% for tag in params.tags %}
+							<span class="tag">
+								<a href="{{ _self.removeTag(tag, params) }}" class="removeTag">X</a>
+								{{tag}}</span>
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+		</form>
+
+		<!--
+		1980s   1990s   2000s   2010s
+		
+		1980    Jan    10    First item in 1980
+		
+		                     Second item on 1/10
+		
+		                15   item on 1/15
+		
+		1982    Oct     4    jeson stetson banksmith
+		
+		1985    Apr     8    Aud's bday
+		-->
+
+		<div class="timeline">
+			<div class="timeline-row">
+				<div class="timeline-year timeline-value">1980</div>
+				<div class="timeline-month timeline-value">Mar</div>
+				<div class="timeline-day timeline-value"><span>4</span></div>
+				<div class="timeline-entry">
+					<div class="entry-teaser">
+						<img class="icon" src="/icons/event.svg" width="20" height="20">
+						<div class="entry-teaser-name">
+							<a href="/entry/crumbumb">8th Grade</a>
+						</div>
+						<div class="entry-teaser-description">
+							Unfortunately due to mitigating cirumstances, I cannot be bothered to present the facts.
+						</div>
+						<div class="entry-teaser-tags">
+							<a class="tag" href="?tags=School&amp;sort=&amp;type=">School</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="timeline-row">
+				<div class="timeline-year">1980</div>
+				<div class="timeline-month">Mar</div>
+				<div class="timeline-day timeline-value"><span>28</span></div>
+				<div class="timeline-entry">
+					<div class="entry-teaser">
+						<img class="icon" src="/icons/event.svg" width="20" height="20">
+						<div class="entry-teaser-name">
+							<a href="/entry/crumbumb">8th Grade</a>
+						</div>
+						<div class="entry-teaser-description">
+							Unfortunately due to mitigating cirumstances, I cannot be bothered to present the facts.
+						</div>
+						<div class="entry-teaser-tags">
+							<a class="tag" href="?tags=School&amp;sort=&amp;type=">School</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="timeline-row">
+				<div class="timeline-year timeline-value">1986</div>
+				<div class="timeline-month timeline-value">Apr</div>
+				<div class="timeline-day timeline-value"><span>12</span></div>
+				<div class="timeline-entry">
+					<div class="entry-teaser">
+						<img class="icon" src="/icons/event.svg" width="20" height="20">
+						<div class="entry-teaser-name">
+							<a href="/entry/crumbumb">8th Grade</a>
+						</div>
+						<div class="entry-teaser-description">
+							Unfortunately due to mitigating cirumstances, I cannot be bothered to present the facts.
+						</div>
+						<div class="entry-teaser-tags">
+							<a class="tag" href="?tags=School&amp;sort=&amp;type=">School</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="timeline-row">
+				<div class="timeline-year">1986</div>
+				<div class="timeline-month timeline-value">Dec</div>
+				<div class="timeline-day timeline-value"><span>18</span></div>
+				<div class="timeline-entry">
+					<div class="entry-teaser">
+						<img class="icon" src="/icons/event.svg" width="20" height="20">
+						<div class="entry-teaser-name">
+							<a href="/entry/crumbumb">8th Grade</a>
+						</div>
+						<div class="entry-teaser-description">
+							Unfortunately due to mitigating cirumstances, I cannot be bothered to present the facts.
+						</div>
+						<div class="entry-teaser-tags">
+							<a class="tag" href="?tags=School&amp;sort=&amp;type=">School</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<hr>
+		{% set year, newYear = '', false %}
+		{% set month = '' %}
+		{% set day = '' %}
+		<div class="timeline">
+			{% for entry in entries %}
+				{% if year == entry.date.format('Y') %}
+					{% if year != "" %}
+					</div>
+				{% endif %}
+				<div class="timeline-year">{{ entry.date.format('Y') }}
+				{% endif %}
+				{% if month == entry.date.format('M') %}
+					{% if month != "" %}
+					</div>
+				{% endif %}
+				<div class="timeline-month">{{ entry.date.format('M') }}</div>
+			{% endif %}
+			{% if day == entry.date.format('j') %}
+				{% if day != "" %}
+				</div>
+			{% endif %}
+			<div class="timeline-day">{{ entry.date.format('j') }}</div>
+		{% endif %}
+		<div class="entry-teaser">
+			{{ svg_icon(entry.type.get()) }}
+			<div class="entry-teaser-name">
+				<a href="/entry/{{ entry.slug }}">{{ entry.name }}</a>
+			</div>
+			<div class="entry-teaser-description">
+				{{ entry.description|length > desclen ? entry.description|slice(0, desclen) ~ '...' : entry.description  }}
+			</div>
+			{% if entry.tags|length > 0 %}
+				<div class="entry-teaser-tags">
+					{% for tag in entry.tags %}
+						{% if tag not in tags %}
+							<a class="tag" href="{{ _self.addTag(tag, params) }}">{{ tag }}</a>
+						{% else %}
+							<span class="tag">{{ tag }}</a>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+</div>
+
+<div class="pager">
+	<span class="label">Pages</span>
+	{% for i in 1..params.pages %}
+		{% if params.page == i %}
+			<span class="current">{{i}}</span>
+		{% else %}
+			<a class="page" href="{{ _self.pageLink(i, params) }}">{{i}}</a>
+		{% endif %}
+	{% endfor %}
+</div></div>
+
+<script>
+// Configure the year range slider
+// https://refreshless.com/nouislider/
+var slider = document.getElementById('timeline-range');
+var legend = document.getElementById('timeline-legend');
+// all years that have entries
+var years = {{ years|json_encode|raw }};
+noUiSlider.create(slider, {
+    start: [{{params.start}}, {{params.end}}], // configure 2 slider handles
+    step: 1, // move 1 year at a time
+    tooltips: true,
+    connect: true, // show color between the two sliders
+    range: {
+        'min': {{min}},
+        'max': {{max}}
+    },
+    // a 'pip' is a notch or label on the legend
+    pips: { // configure the legend
+        mode: 'steps',
+        filter: function(value, type) {
+            // show a year label every 10 years
+            if (value % 10 === 0) {
+                return 1; // show label
+            } else {
+                // if this is a year we have content for
+                if (years.indexOf(""+value) > -1) {
+                    return 0; // show unlabelled notch
+                } else {
+                    return -1; // no pip at all
+                }
+            }
+        }
+    },
+    // display whole numbers
+    format: {
+        to: function(val) {
+            return Math.round(val);
+        },
+        from: function (val) {
+            return Number(val)
+        }
+    }
+});
+slider.noUiSlider.on('change', function (values) {
+    document.timelineFilters.start.value = values[0];
+    document.timelineFilters.end.value = values[1];
+});
+</script>
+
+{% endblock %}

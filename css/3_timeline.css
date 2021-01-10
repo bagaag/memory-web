@@ -1,0 +1,44 @@
+.timeline {
+    margin-top: 3rem;
+}
+
+.timeline-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline-day span {
+    display: block;
+    width: 25px;
+    text-align: right;
+}
+
+.timeline-year, .timeline-month, .timeline-day {
+    width: 75px;
+    padding: 4px;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: var(--lighter);
+}
+
+.timeline-month {
+    width: 60px;
+}
+
+.timeline-value {
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: black;
+}
+
+#timeline-range {
+    margin: 4rem 1rem 4rem;
+}
+
+.noUi-connect {
+    background-color: var(--medium) !important;
+}
+.noUi-value-large {
+    padding-top: .25rem;
+    font-size: .85rem;
+}
