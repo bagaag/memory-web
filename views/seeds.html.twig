@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% from "./macros/svg_icon.macro.twig" import svg_icon as svg_icon %}
+{% block title %}{{ h1 }}{% endblock %}
+{% set desclen = 100 %}
+
+{% block body %}
+
+<div class="banner"><h1 class="content">{{ h1 }}</h1></div>
+
+<div class="content">
+
+    <p>Seeds are entries you've linked to but haven't created yet. Use this as a todo list for new entries.</p>
+
+    {% for entry in seeds %}
+        <p class="seed"><a href="/edit/{{entry.slug}}">{{entry.name}}</a></p>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
