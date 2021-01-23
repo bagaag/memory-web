@@ -3,12 +3,19 @@
     padding: .5rem 0;
 }
 
+.nav-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .nav-main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+    margin: 0;
 }
 
 .nav-item, .nav-brand {
@@ -49,4 +56,12 @@
 
 .nav-drop .nav-item {
     padding: 12px;
+}
+
+.nav-util {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
 }

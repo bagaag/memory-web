@@ -18,6 +18,8 @@ export class DropdownMenus {
                 trigger = ev.target;
             } else if (ev.target.parentElement && ev.target.parentElement.matches('.nav-trigger')) {
                 trigger = ev.target.parentElement;
+            } else if (ev.target.parentElement.parentElement && ev.target.parentElement.parentElement.matches('.nav-trigger')) {
+                trigger = ev.target.parentElement.parentElement;
             } else if (typeof this.dropdown != 'undefined') {
                 this.dropdown.style.display = 'none';
                 this.dropdown = undefined;
@@ -29,6 +31,11 @@ export class DropdownMenus {
             if (drop.style.display == 'block') {
                 drop.style.display = 'none';
             } else {
+                // right-align menu if class nav-drop-right is present
+                if (drop.matches('.nav-drop-right')) {
+                    let triggerRect = trigger.getBoundingClientRect();
+                    drop.style.right = (window.innerWidth - triggerRect.right) + 'px';
+                }
                 drop.style.display = 'block';
                 this.dropdown = drop;
             }

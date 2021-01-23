@@ -11,23 +11,39 @@
 <body>
 
 <div class="nav-back">
-    <div class="nav-main content">
-        <div class="nav-brand"><a href="/">Memory</a></div>
-        <div class="nav-item"><a href="/dashboard">Dashboard</a></div>
-        <div class="nav-submenu">
-            <div class="nav-item nav-trigger"><a href="#">Create</div>
-            <div class="nav-drop">
-                <a class="nav-item" href="/new?type=event">Event</a>
-                <a class="nav-item" href="/new?type=person">Person</a>
-                <a class="nav-item" href="/new?type=place">Place</a>
-                <a class="nav-item" href="/new?type=thing">Thing</a>
-                <a class="nav-item" href="/new?type=note">Note</a>
+    <div class="nav-content content">
+        <div class="nav-main">
+            <div class="nav-brand"><a href="/">Memory</a></div>
+            <div class="nav-item"><a href="/dashboard">Dashboard</a></div>
+            <div class="nav-submenu">
+                <div class="nav-item nav-trigger"><a href="#">Create</a></div>
+                <div class="nav-drop">
+                    <a class="nav-item" href="/new?type=event">Event</a>
+                    <a class="nav-item" href="/new?type=person">Person</a>
+                    <a class="nav-item" href="/new?type=place">Place</a>
+                    <a class="nav-item" href="/new?type=thing">Thing</a>
+                    <a class="nav-item" href="/new?type=note">Note</a>
+                </div>
+            </div>
+            <div class="nav-item"><a href="/browse">Browse</a></div>
+            <div class="nav-item"><a href="/timeline">Timeline</a></div>
+            <div class="nav-item"><a href="/seeds">Seeds</a></div>
+            <div class="nav-item"><a href="/random">Random</a></div>
+        </div>
+        <div class="nav-util">
+            <div class="nav-submenu">
+                <div class="nav-item nav-trigger"><a href="#"><img src="/icons/user.png" height="24" width="24"></a></div>
+                <div class="nav-drop nav-drop-right">
+                {% if user is defined %}
+                    <div class="nav-item"><a href="/login">Login</a></div>
+                    <div class="nav-item"><a href="/register">Register</a></div>
+                {% else %}
+                    <div class="nav-item"><a href="/account">Account</a></div>
+                    <div class="nav-item"><a href="/logout">Log Out</a></div>
+                {% endif %}
+                </div>
             </div>
         </div>
-        <div class="nav-item"><a href="/browse">Browse</a></div>
-        <div class="nav-item"><a href="/timeline">Timeline</a></div>
-        <div class="nav-item"><a href="/seeds">Seeds</a></div>
-        <div class="nav-item"><a href="/random">Random</a></div>
     </div>
 </div>
 
