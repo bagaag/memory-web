@@ -1,5 +1,7 @@
 <?php
 
+// Attachment represents a user-uploaded file associated with an Entry.
+
 class Attachment
 {
     public int $index = 0;

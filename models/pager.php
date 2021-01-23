@@ -1,5 +1,7 @@
 <?php
 
+// Pager is a helper that splits a list of items into navigable pages.
+
 class Pager
 {
     public int $total; // total number of items

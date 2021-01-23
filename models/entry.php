@@ -1,6 +1,8 @@
 <?php
 require_once "entryType.php";
 
+// Entry represents a peice of content created by the user.
+
 class Entry
 {
 	public string $name = "";

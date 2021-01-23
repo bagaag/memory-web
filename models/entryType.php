@@ -1,5 +1,7 @@
 <?php
 
+// EntryType represents the category of an Entry.
+
 class EntryType
 {
 	const EVENT = "event";
