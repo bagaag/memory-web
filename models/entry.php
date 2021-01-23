@@ -1,5 +1,5 @@
 <?php
-require_once "entryType.php";
+require_once "entry_type.php";
 
 // Entry represents a peice of content created by the user.
 
