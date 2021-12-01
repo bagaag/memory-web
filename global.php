@@ -1,7 +1,7 @@
 <?php
 
 // DEBUG controls css/js combinification, etc.
-define('DEBUG', true, true);
+define('DEBUG', true);
 
 // load composer dependencies
 require_once __DIR__ . '/vendor/autoload.php';

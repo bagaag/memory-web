@@ -1,0 +1,3 @@
+[submodule "tfm"]
+	path = tfm
+	url = https://github.com/bagaag/tinyfilemanager.git

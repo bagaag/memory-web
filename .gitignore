@@ -1,2 +1,6 @@
+.vs
 /vendor
 /images/tmp
+/entries/assets/*
+/entries/markdown/*
+!.gitkeep
