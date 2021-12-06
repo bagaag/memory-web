@@ -4,17 +4,15 @@
 
 class Attachment
 {
-    public int $index = 0;
     public string $name = "";
-    public string $slug = "";
     public string $extension = "";
+    public string $path = "";
 
-	public function __construct($index, $name, $slug, $extension) {
-        $this->index = $index;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->extension = $extension;
-        $this->file = $file;
+	public function __construct($path) {
+        $pathinfo = pathinfo($path);
+        $this->name = $pathinfo['filename'];
+        $this->extension = $pathinfo['extension'];
+        $this->path = $path;
     }
 
     public function url($entry) {

@@ -3,6 +3,7 @@
         "twig/twig": "^3.1",
         "tinymce/tinymce": ">= 5",
         "dimsemenov/magnific-popup": "~1.1.0",
-        "leongersen/nouislider": "~14.6.3"
+        "leongersen/nouislider": "~14.6.3",
+        "erusev/parsedown": "^1.7"
     }
 }

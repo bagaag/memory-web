@@ -8,7 +8,6 @@ class EntryType
 	const PERSON = "person";
 	const PLACE = "place";
 	const THING = "thing";
-	const NOTE = "note";
 	
 	private string $value;
 
@@ -22,9 +21,18 @@ class EntryType
 		return $this->value;
 	}
 
+	public static function isValid(string $v) 
+	{
+		if ($v == self::EVENT || $v == self::PERSON || $v == self::PLACE || $v == self::THING)
+		{
+			return true;
+		}
+		return false;
+	}
+
 	public function set(string $v) 
 	{
-		if ($v == self::EVENT || $v == self::PERSON || $v == self::PLACE || $v == self::THING || $v == self::NOTE)
+		if (EntryType::isValid($v))
 		{
 			$this->value = $v;
 		} 
