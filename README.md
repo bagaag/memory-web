@@ -32,5 +32,6 @@ Architecture:
 * Storage: Image server using localfs cache backed by S3
     /spaces/[space]/[entry]/file.ext?use-querystring-to-validate-cognito-session
 
-Client ID: 7s4hpgbrpph4ko1334nfn6rgqp
-Secret: 1sh40cbblcd4k3as7u77mda5b8348bt3id4m18ubeab5l8v0k0h4
+Debugging:
+* xdebug requires PHP 8.1
+* php_yaml.dll will not load in PHP 8.1 - gave up

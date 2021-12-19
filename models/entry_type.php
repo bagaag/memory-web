@@ -23,6 +23,7 @@ class EntryType
 
 	public static function isValid(string $v) 
 	{
+		$v = strtolower($v);
 		if ($v == self::EVENT || $v == self::PERSON || $v == self::PLACE || $v == self::THING)
 		{
 			return true;
@@ -32,6 +33,7 @@ class EntryType
 
 	public function set(string $v) 
 	{
+		$v = strtolower($v);
 		if (EntryType::isValid($v))
 		{
 			$this->value = $v;

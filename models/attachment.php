@@ -4,27 +4,25 @@
 
 class Attachment
 {
+    public string $slug = "";
     public string $name = "";
     public string $extension = "";
     public string $path = "";
+    public string $uri = "";
 
 	public function __construct($path) {
         $pathinfo = pathinfo($path);
         $this->name = $pathinfo['filename'];
         $this->extension = $pathinfo['extension'];
         $this->path = $path;
+        $this->slug = pathinfo(dirname($path))['filename'];
+        $this->uri = '/entries/attachments/' . $this->slug . '/' . $this->name . '.' . $this->extension;
     }
 
-    public function url($entry) {
-        $imgs = array(
-            '/images/tmp/1.jpg',
-            '/images/tmp/2.png',
-            '/images/tmp/3.jpg',
-            '/images/tmp/4.jpg',
-            '/images/tmp/5.webp',
-            '/images/tmp/6.jpg'
-        );
-        return $imgs[array_rand($imgs)];
-        //return '/entry/' . $entry->slug . '/' . $this->slug . '.' . $this->ext;
+    public function isImage() 
+    {
+        // TODO: implement attachment.isImage()
+        return true;
     }
+
 }

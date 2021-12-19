@@ -3,6 +3,7 @@ require_once 'base.php';
 
 // create a new entry
 $entry = new Entry();
+$entry->description = '';
 
 // see if a type was specified on the query string; defaults to event
 $type = http_get_var('type');

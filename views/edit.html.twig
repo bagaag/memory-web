@@ -4,18 +4,22 @@
 
 <div class="banner"><h1 class="content">{{ h1 }}</h1></div>
 
-<div class="content edit-form">
+<form name="entryForm" class="content edit-form">
     <div class="field-group entry-name">
         <input type="text" id="name" name="name" value="{{entry.name}}" placeholder="Entry Name">        
     </div>
 
     <div class="tablabel">Entry Type</div>
     <div class="tab">
-        <button class="tablinks" data-tab="tab-event">Event</button>
-        <button class="tablinks" data-tab="tab-person">Person</button>
-        <button class="tablinks" data-tab="tab-place">Place</button>
-        <button class="tablinks" data-tab="tab-thing">Thing</button>
-        <button class="tablinks" data-tab="tab-note">Note</button>
+        <button type="button" class="tablinks" data-tab="tab-event">Event</button>
+        <button type="button" class="tablinks" data-tab="tab-person">Person</button>
+        <button type="button" class="tablinks" data-tab="tab-place">Place</button>
+        <button type="button" class="tablinks" data-tab="tab-thing">Thing</button>
+    </div>
+
+    <div class="field-group">
+        <label for="tags" title="Separate tags with a comma. Use tags to categorize entries within or across Types. Tags for a Person might be Friend or Family, while To Do can tag entries of any Type that need work." class="helper">Tags</label>
+        <input type="text" name="tags" id="tags" value="{{entry.tags|join(',')}}" class="tags-input">        
     </div>
 
     <!-- Tab content -->
@@ -37,43 +41,26 @@
 
     <div id="tab-place" class="tabcontent">
         <div class="field-group">
-            <label for="address" title="Enter an address as a single line as you would in Google Maps. Click `Show Map` to refine the location with a map pin." class="helper">Address</label>
-            <input type="text" class="entry-address" id="address" name="address">
-        </div>
-        <div class="row">            
-            <div class="field-group field-latlon col-3">
-                <label for="longitude">Longitude</label>
-                <input type="text" size="10" id="longitude" name="longitude">        
-            </div>
-            <div class="field-group field-latlon col-3">
-                <label for="latitude">Latitude</label>
-                <input type="text" size="10" id="latitude" name="latitude">        
-            </div>
-            <div class="field-group field-btn col-3">
-                <label>&nbsp;</label>
-                <input type="button" id="toggleMap" value="Show Map">
+            <label for="address" title="Enter an address as a single line as you would in Google Maps. You can also enter coordinates such as 48.85391,2.2913515. Click `Show Map` to test." class="helper">Address</label>
+            <div style="display: flex;">
+                <input type="text" class="entry-address" id="address" name="address" value="{{entry.address}}">
+                <a class="btn-link show-map" href="javascript:window.open('https://www.google.com/maps/place/'+encodeURI(document.entryForm.address.value, '_blank'))">Show Map</a>
             </div>
         </div>
     </div>
 
     <div id="tab-thing" class="tabcontent"></div>
 
-    <div id="tab-note" class="tabcontent"></div>
-
-    <div class="field-group">
-        <label for="tags" title="Separate tags with a comma. Use tags to categorize entries within or across Types. Tags for a Person might be Friend or Family, while To Do can tag entries of any Type that need work." class="helper">Tags</label>
-        <input type="text" name="tags" id="tags" value="{{entry.tags|join(',')}}" class="tags-input">        
-    </div>
-
-    <div class="field-group" style="min-height: 300px">
-        <textarea id="description" name="description">{{entry.description|raw}}</textarea>
+    <div class="field-group" style="margin-top:2rem;">
+        <label title="Write about this topic here. The editor supports <a href='https://www.markdownguide.org/cheat-sheet/' target='_blank'>Markdown</a> for formatting and links." class="helper">Description</label>
+        <div id="description">{{entry.description|raw}}</div>
     </div>
 
     <div>
         <div id="file-manager-list" class="reorder">
             <div id="reorder-item-last" class="reorder-item"></div>
         </div>
-        <form class="row" id="file-manager-add" onsubmit="return false;">
+        <div class="row" id="file-manager-add">
             <div class="col-6">
                 <div class="field-group">
                     <label for="label_#" title="Give the file a friendly display name." class="help-label">Name <img src="/images/help.png"></label>
@@ -89,10 +76,11 @@
             <div class="col-2">
                 <div class="field-group" style="text-align: right">
                     <label>&nbsp;</label>
-                    <button id="file-manager-upload">Upload</button>
+                    <button id="file-manager-upload" type="button">Add</button>
+                    <input name="upload[]" type="file" multiple="multiple" />
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <div id="file-manager-edit-template">
@@ -122,12 +110,13 @@
         </div>
     </div>
 
-    <div class="btn-group">
+    <div class="btn-group" style="min-height: 100px;">
         <a class="btn" href="#">Save</a>
+        <a class="btn" href="#">Save &amp; View</a>
         <a class="btn-link" href="javascript:if (confirm('Are you sure you want to discard your changes?')) history.back();">Cancel</a>
     </div>
 
-</div>
+</form>
 
 <!-- Tabs -->
 <script type="module">
@@ -151,19 +140,21 @@ setupHelp(); // decorates labels with help text
 var tagify = new Tagify(document.getElementById('tags'));
 </script>
 
-<!-- TinyMCE -->
-<script src="/vendor/tinymce/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-// https://www.tiny.cloud/docs/configure/
-tinymce.init({
-    selector: '#description',
-    height: 300,
-    contextmenu: false,
-    plugins: 'lists autolink link image',
-    menubar: false,
-    toolbar: 'cut copy paste | styleselect | bold italic strikethrough removeformat | bullist numlist outdent indent | ' +
-        'link image | source'
-});
+<!-- Ace editor -->
+<script src="/js/vendor/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    window.onload = function() {
+        var editor = ace.edit("description");
+        editor.setTheme("ace/theme/chrome");
+        editor.setOptions({
+            showGutter: false,
+            wrap: true,
+            fontSize: 15,
+            maxLines: Infinity,
+            showPrintMargin: false
+        });
+        editor.session.setMode("ace/mode/markdown");
+    };
 </script>
 
 <!-- Date Picker -->
@@ -188,7 +179,7 @@ const endPicker = datepicker('#endDate', pickerOptions);
 import { FileManager } from '/js/filemanager.js';
 let fileManager = new FileManager([
     {% for att in entry.attachments %}
-        {name: "{{att.name}}", slug: "{{att.slug}}", extension: "{{att.extension}}", url: "{{att.url(entry)}}" },
+        {name: "{{att.name}}", slug: "{{att.slug}}", extension: "{{att.extension}}", url: "{{att.uri}}" },
     {% endfor %}
 ]);
 </script>

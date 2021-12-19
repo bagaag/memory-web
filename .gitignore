@@ -1,7 +1,8 @@
 .vs
+.vscode
 /vendor
 /images/tmp
-/entries/assets/*
-/entries/markdown/*
+/entries
+/entries
 !.gitkeep
 /test.php

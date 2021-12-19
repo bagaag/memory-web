@@ -1,5 +1,9 @@
 <?php
 
+// file locations
+define('ENTRIES_PATH', __DIR__ . DIRECTORY_SEPARATOR .  'entries' . DIRECTORY_SEPARATOR . 'markdown');
+define('ATTACHMENTS_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'entries' . DIRECTORY_SEPARATOR . 'attachments');
+
 // DEBUG controls css/js combinification, etc.
 define('DEBUG', true);
 
@@ -11,6 +15,9 @@ foreach (glob(__DIR__ . "/util/*.php") as $filename) {
     require_once $filename;
 }
 foreach (glob(__DIR__ . "/models/*.php") as $filename) {
+    require_once $filename;
+}
+foreach (glob(__DIR__ . "/repositories/*.php") as $filename) {
     require_once $filename;
 }
 
@@ -33,3 +40,4 @@ if ($qspos != FALSE) {
 if ($slug == '') {
     $slug = "home";
 }
+

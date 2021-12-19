@@ -31,8 +31,8 @@ class Pager
 
     // updates pager state from request parameters
     public function setRequestState() {
-        $page = $_REQUEST['page'];
-        if (isset($page) and is_numeric($page)) {
+        if (array_key_exists('page', $_REQUEST) && is_numeric($_REQUEST['page'])) {
+            $page = $_REQUEST['page'];
             if ($page <= $this->pages and $page > 0) {
                 $this->page = $page;
             }

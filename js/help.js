@@ -33,7 +33,7 @@ export function setupHelp() {
         // add the help-text label element
         let helpTextLabel = document.createElement('label');
         helpTextLabel.setAttribute('style', 'display:none');
-        helpTextLabel.textContent = helpText;
+        helpTextLabel.innerHTML = helpText;
         helpTextLabel.setAttribute('class','helper-text');
         label.insertAdjacentElement('afterend', helpTextLabel);
         // click to show
@@ -52,7 +52,9 @@ export function setupHelp() {
         });
         // click to hide 
         helpTextLabel.addEventListener('click', (ev) => {
-            ev.target.style.display = 'none';
+            // allow link clicks w/out hiding
+            if (ev.target.tagName.toLowerCase() === 'a') return;
+            else ev.target.style.display = 'none';
         });
     }
 }
